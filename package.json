@@ -31,6 +31,7 @@
     "@modern-js/plugin-koa": "^2.58.1",
     "@modern-js/plugin-polyfill": "^2.58.1",
     "@modern-js/plugin-tailwindcss": "^2.58.1",
+    "@modern-js/prod-server": "^2.58.1",
     "@modern-js/runtime": "^2.58.1",
     "@semi-bot/semi-theme-automap": "^1.0.0",
     "koa": "^2.15.3",
