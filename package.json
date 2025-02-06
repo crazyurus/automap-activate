@@ -26,13 +26,13 @@
     "dist/"
   ],
   "dependencies": {
-    "@douyinfe/semi-ui": "^2.64.0",
-    "@modern-js/plugin-bff": "^2.58.1",
-    "@modern-js/plugin-koa": "^2.58.1",
-    "@modern-js/plugin-polyfill": "^2.58.1",
-    "@modern-js/plugin-tailwindcss": "^2.58.1",
-    "@modern-js/prod-server": "^2.58.1",
-    "@modern-js/runtime": "^2.58.1",
+    "@douyinfe/semi-ui": "^2.73.0",
+    "@modern-js/plugin-bff": "^2.64.1",
+    "@modern-js/plugin-koa": "^2.64.1",
+    "@modern-js/plugin-polyfill": "^2.64.1",
+    "@modern-js/plugin-tailwindcss": "^2.64.1",
+    "@modern-js/prod-server": "^2.64.1",
+    "@modern-js/runtime": "^2.64.1",
     "@semi-bot/semi-theme-automap": "^1.0.0",
     "koa": "^2.15.3",
     "koa-body": "^6.0.1",
@@ -41,11 +41,11 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@douyinfe/semi-rspack-plugin": "^2.64.0",
-    "@modern-js-app/eslint-config": "^2.58.1",
-    "@modern-js/app-tools": "^2.58.1",
-    "@modern-js/eslint-config": "^2.58.1",
-    "@modern-js/tsconfig": "^2.58.1",
+    "@douyinfe/semi-rspack-plugin": "^2.73.0",
+    "@modern-js-app/eslint-config": "^2.59.0",
+    "@modern-js/app-tools": "^2.64.1",
+    "@modern-js/eslint-config": "^2.59.0",
+    "@modern-js/tsconfig": "^2.64.1",
     "@types/jest": "^29.5.12",
     "@types/koa": "^2.15.0",
     "@types/koa-logger": "^3.1.5",
@@ -59,6 +59,6 @@
     "tailwindcss": "^3.4.10",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.7.3"
   }
 }
