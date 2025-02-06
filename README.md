@@ -1,7 +1,5 @@
 # 高德地图比亚迪定制版查询工具
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/d14a267b-d933-488d-9769-98d737daf74e/deploy-status)](https://app.netlify.com/sites/automap-activate/deploys)
-
 https://automap.crazyurus.com/
 
 ## Setup

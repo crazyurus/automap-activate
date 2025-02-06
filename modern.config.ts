@@ -29,6 +29,11 @@ export default defineConfig({
     title: '高德地图比亚迪定制版激活查询工具',
   },
   tools: {
+    sass: {
+      sassOptions: {
+        silenceDeprecations: ['global-builtin', 'import'],
+      },
+    },
     rspack(config, context) {
       context.appendPlugins([
         new SemiRspackPlugin({
