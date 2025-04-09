@@ -1,12 +1,22 @@
 import type { RequestOption } from '@modern-js/runtime/server';
 
-export async function post(context: RequestOption<never, { phone: string }>) {
-  const { phone } = context.data;
+export async function post(
+  context: RequestOption<never, { phone: string; vin: string }>,
+) {
+  const { phone, vin } = context.data;
 
   if (!/^1\d{10}$/.test(phone)) {
     return {
       code: -1,
       message: '本机号码格式不正确',
+      data: null,
+    };
+  }
+
+  if (!/^[a-zA-Z0-9]{6}$/.test(vin)) {
+    return {
+      code: -1,
+      message: '车架号后 6 位格式不正确',
       data: null,
     };
   }
@@ -23,11 +33,25 @@ export async function post(context: RequestOption<never, { phone: string }>) {
   const { code, success, message, result } = await response.json();
 
   if (success) {
-    return {
-      code: 0,
-      message: result.state,
-      data: {},
-    };
+    if (
+      result.vin === null ||
+      result.vin.slice(-6).toLowerCase() === vin.toLowerCase()
+    ) {
+      return {
+        code: 0,
+        message: result.state,
+        data: {
+          activationTime: result.activationTime,
+          activateCount: result.numOfSuccessfulActivation,
+        },
+      };
+    } else {
+      return {
+        code: -2,
+        message: '车架号后 6 位与本机号码不匹配',
+        data: null,
+      };
+    }
   }
 
   return {

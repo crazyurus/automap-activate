@@ -26,7 +26,7 @@ export default defineConfig({
     tailwindcssPlugin(),
   ],
   html: {
-    title: '高德地图比亚迪定制版激活查询工具',
+    title: '比亚迪定制版地图激活查询工具',
   },
   tools: {
     sass: {

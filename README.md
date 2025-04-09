@@ -1,4 +1,4 @@
-# 高德地图比亚迪定制版查询工具
+# 比亚迪定制版地图激活查询工具
 
 https://automap.crazyurus.com/
 
