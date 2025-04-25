@@ -61,6 +61,7 @@ function IndexPage(): JSX.Element {
         <Form.Input
           field="phone"
           label="车联网卡号/本机号码"
+          type="tel"
           placeholder="可在比亚迪 App 的 SIM 卡实名认证或车机的版本信息中查看，例如：14888888888"
           maxLength={11}
           required

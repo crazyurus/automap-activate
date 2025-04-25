@@ -10,7 +10,12 @@ function Layout(): JSX.Element {
       <div className={styles.body}>
         <Outlet />
       </div>
-      <footer className={styles.footer}>&copy; Cr4zy Uru5</footer>
+      <footer
+        className={styles.footer}
+        onClick={() => window.open('https://crazyurus.com/')}
+      >
+        &copy; Cr4zy Uru5
+      </footer>
     </div>
   );
 }
