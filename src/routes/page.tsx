@@ -86,7 +86,7 @@ function IndexPage(): JSX.Element {
             },
           ]}
         />
-        <div className="mt-4">
+        <div className={styles.footer}>
           <Button
             htmlType="submit"
             loading={loading}
