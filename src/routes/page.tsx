@@ -99,13 +99,14 @@ function IndexPage(): JSX.Element {
         <Form.Input
           field="vin"
           label="车架号后 6 位"
+          type="tel"
           placeholder="可在比亚迪 App 的 SIM 卡实名认证中查看"
           extraText="仅提供查询激活状态服务"
           maxLength={6}
           required
           rules={[
             {
-              pattern: /^[a-zA-Z0-9]{6}$/,
+              pattern: /^\d{6}$/,
               message: '请输入正确的车架号后 6 位',
             },
           ]}

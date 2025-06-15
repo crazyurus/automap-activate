@@ -13,7 +13,7 @@ export async function post(
     };
   }
 
-  if (!/^[a-zA-Z0-9]{6}$/.test(vin)) {
+  if (!/^\d{6}$/.test(vin)) {
     return {
       code: -1,
       message: '车架号后 6 位格式不正确',
@@ -33,10 +33,7 @@ export async function post(
   const { code, success, message, result } = await response.json();
 
   if (success) {
-    if (
-      result.vin === null ||
-      result.vin.slice(-6).toLowerCase() === vin.toLowerCase()
-    ) {
+    if (result.vin === null || result.vin.slice(-6) === vin) {
       return {
         code: 0,
         message: result.state,
