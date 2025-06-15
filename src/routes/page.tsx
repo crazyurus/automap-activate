@@ -1,9 +1,20 @@
-import { Button, Form, Modal, Typography } from '@douyinfe/semi-ui';
+import { Button, Banner, Form, Modal, Typography } from '@douyinfe/semi-ui';
 
 import { post as activate } from '@api/activate';
 import { useLoading } from '../hooks';
 
 import styles from './page.module.scss';
+
+const tutorial = (
+  <Typography.Text
+    link={{
+      href: 'https://docs.qq.com/aio/p/sc8axhs28s5bis8?p=5m0fAv5RoOObkSnOcYLfmQ',
+      target: '_blank',
+    }}
+  >
+    https://docs.qq.com/aio/p/sc8axhs28s5bis8?p=5m0fAv5RoOObkSnOcYLfmQ
+  </Typography.Text>
+);
 
 function IndexPage(): JSX.Element {
   const [handleActivate, loading] = useLoading(async values => {
@@ -26,14 +37,7 @@ function IndexPage(): JSX.Element {
                 : ''}
               。地图使用教程：
             </span>
-            <Typography.Text
-              link={{
-                href: 'https://docs.qq.com/aio/p/sc8axhs28s5bis8?p=5m0fAv5RoOObkSnOcYLfmQ',
-                target: '_blank',
-              }}
-            >
-              https://docs.qq.com/aio/p/sc8axhs28s5bis8?p=5m0fAv5RoOObkSnOcYLfmQ
-            </Typography.Text>
+            {tutorial}
           </>
         ),
         cancelButtonProps: {
@@ -43,21 +47,14 @@ function IndexPage(): JSX.Element {
         },
       });
     } else if (code === 3001) {
-      Modal.warning({
+      Modal.success({
         title: message,
         content: (
           <>
             <span>
-              虽然查询到你的设备仍在黑名单中，但目前激活限制可能已经解除，你可以安装【高德地图定制版】尝试能否正常使用，若可以正常使用再来查询激活状态是否变化。地图使用教程：
+              虽然查询到你的设备仍在黑名单中，但目前激活限制已经解除，你可以安装【高德地图定制版】正常使用，再来查询激活状态会变为【未激活】。地图使用教程：
             </span>
-            <Typography.Text
-              link={{
-                href: 'https://docs.qq.com/aio/p/sc8axhs28s5bis8?p=5m0fAv5RoOObkSnOcYLfmQ',
-                target: '_blank',
-              }}
-            >
-              https://docs.qq.com/aio/p/sc8axhs28s5bis8?p=5m0fAv5RoOObkSnOcYLfmQ
-            </Typography.Text>
+            {tutorial}
           </>
         ),
         cancelButtonProps: {
@@ -81,6 +78,19 @@ function IndexPage(): JSX.Element {
 
   return (
     <div className={styles.container}>
+      <Banner
+        className={styles.banner}
+        type="warning"
+        description={
+          <>
+            <span>
+              自 2025 年 6 月 13
+              日起激活黑名单已解除，之前查询结果是激活黑名单的用户可正常使用【高德地图定制版】。使用教程：
+            </span>
+            {tutorial}
+          </>
+        }
+      />
       <Form onSubmit={values => handleActivate(values)}>
         <Form.Input
           field="phone"
