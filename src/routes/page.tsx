@@ -42,6 +42,30 @@ function IndexPage(): JSX.Element {
           },
         },
       });
+    } else if (code === 3001) {
+      Modal.warning({
+        title: message,
+        content: (
+          <>
+            <span>
+              虽然查询到你的设备仍在黑名单中，但目前激活限制可能已经解除，你可以安装【高德地图定制版】尝试能否正常使用，若可以正常使用再来查询激活状态是否变化。地图使用教程：
+            </span>
+            <Typography.Text
+              link={{
+                href: 'https://docs.qq.com/aio/p/sc8axhs28s5bis8?p=5m0fAv5RoOObkSnOcYLfmQ',
+                target: '_blank',
+              }}
+            >
+              https://docs.qq.com/aio/p/sc8axhs28s5bis8?p=5m0fAv5RoOObkSnOcYLfmQ
+            </Typography.Text>
+          </>
+        ),
+        cancelButtonProps: {
+          style: {
+            display: 'none',
+          },
+        },
+      });
     } else {
       Modal.error({
         title: message,
