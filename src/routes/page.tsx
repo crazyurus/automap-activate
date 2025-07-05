@@ -84,13 +84,28 @@ function IndexPage(): JSX.Element {
         description={
           <>
             <span>
-              自 2025 年 6 月 13
-              日起激活黑名单已解除，之前查询结果是激活黑名单的用户可正常使用【高德地图定制版】。使用教程：
+              自2025年6月13日起激活黑名单已解除，之前查询结果是激活黑名单的用户可正常使用【高德地图定制版】。查看详细说明：
             </span>
-            {tutorial}
+            <a
+              href="https://mp.weixin.qq.com/s/ffAwZvk_j6PHl28SrWbrgw"
+              target="_blank"
+            >
+              https://mp.weixin.qq.com/s/ffAwZvk_j6PHl28SrWbrgw
+            </a>
           </>
         }
+        closeIcon={null}
       />
+      <Banner
+        className={styles.banner}
+        type="info"
+        description="由于限制已经解除，本站的激活查询功能已完成其历史使命。计划于2025年7月15日下线，网站仅保留地图使用教程的入口，感谢各位车友的陪伴"
+        closeIcon={null}
+      />
+      <div className={styles.tutorial}>
+        <span>比亚迪定制版地图使用教程：</span>
+        {tutorial}
+      </div>
       <Form onSubmit={values => handleActivate(values)}>
         <Form.Input
           field="phone"
