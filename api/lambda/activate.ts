@@ -5,6 +5,14 @@ export async function post(
 ) {
   const { phone, vin } = context.data;
 
+  if (Date.now() > new Date('2025-7-15').getTime()) {
+    return {
+      code: -1,
+      message: '激活查询功能已下线，你可以直接使用定制版地图',
+      data: null,
+    };
+  }
+
   if (!/^1\d{10}$/.test(phone)) {
     return {
       code: -1,
