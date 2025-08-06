@@ -46,23 +46,6 @@ function IndexPage(): JSX.Element {
           },
         },
       });
-    } else if (code === 3001) {
-      Modal.success({
-        title: message,
-        content: (
-          <>
-            <span>
-              虽然查询到你的设备仍在黑名单中，但目前激活限制已经解除，你可以安装【高德地图定制版】正常使用，再来查询激活状态会变为【未激活】。地图使用教程：
-            </span>
-            {tutorial}
-          </>
-        ),
-        cancelButtonProps: {
-          style: {
-            display: 'none',
-          },
-        },
-      });
     } else {
       Modal.error({
         title: message,
@@ -80,26 +63,8 @@ function IndexPage(): JSX.Element {
     <div className={styles.container}>
       <Banner
         className={styles.banner}
-        type="warning"
-        description={
-          <>
-            <span>
-              自2025年6月15日起激活黑名单已解除，之前查询结果是激活黑名单的用户可正常使用【高德地图定制版】。查看详细说明：
-            </span>
-            <a
-              href="https://mp.weixin.qq.com/s/ffAwZvk_j6PHl28SrWbrgw"
-              target="_blank"
-            >
-              https://mp.weixin.qq.com/s/ffAwZvk_j6PHl28SrWbrgw
-            </a>
-          </>
-        }
-        closeIcon={null}
-      />
-      <Banner
-        className={styles.banner}
         type="info"
-        description="由于限制已经解除，本站的激活查询功能已完成其历史使命，计划于2025年7月15日下线。网站仅保留地图使用教程的入口"
+        description="由于地图激活的限制重新出现，本站的查询功能现已恢复"
         closeIcon={null}
       />
       <div className={styles.tutorial}>
