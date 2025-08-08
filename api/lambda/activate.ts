@@ -37,10 +37,7 @@ export async function post(
       return {
         code: 0,
         message: result.state,
-        data: {
-          activationTime: result.activationTime,
-          activateCount: result.numOfSuccessfulActivation,
-        },
+        data: {},
       };
     } else {
       return {

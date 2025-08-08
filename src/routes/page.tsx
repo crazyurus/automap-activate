@@ -18,7 +18,7 @@ const tutorial = (
 
 function IndexPage(): JSX.Element {
   const [handleActivate, loading] = useLoading(async values => {
-    const { code, message, data } = await activate({
+    const { code, message } = await activate({
       data: values,
     });
 
@@ -27,16 +27,7 @@ function IndexPage(): JSX.Element {
         title: message,
         content: (
           <>
-            <span>
-              可正常使用比亚迪定制版地图
-              {data?.activationTime
-                ? `，最后一次激活时间：${data.activationTime}`
-                : ''}
-              {data?.activateCount
-                ? `，激活次数：${data.activateCount} 次`
-                : ''}
-              。地图使用教程：
-            </span>
+            <span>可正常使用比亚迪定制版地图。地图使用教程：</span>
             {tutorial}
           </>
         ),
