@@ -33,6 +33,7 @@
     "@modern-js/prod-server": "^2.67.5",
     "@modern-js/runtime": "^2.67.5",
     "@semi-bot/semi-theme-automap": "^1.0.0",
+    "swr": "^2.3.6",
     "koa": "^3.0.0",
     "koa-body": "^6.0.1",
     "koa-logger": "^3.2.1",
