@@ -204,7 +204,7 @@ $ adb shell am start -d "androidauto://navi2SpecialDest?dest=home"
 $ adb shell am start -d "androidauto://navi2SpecialDest?dest=crop"
 ```
 
-1. DiLink 4.0 高德地图定制版
+2. DiLink 4.0 高德地图定制版
 
 ```shell
 // 回家
@@ -214,7 +214,7 @@ $ adb shell am start -d "bydautomap://launch_go_home"
 $ adb shell am start -d "bydautomap://launch_go_company"
 ```
 
-1. DiLink 5.0 高德地图定制版
+3. DiLink 5.0 高德地图定制版
 
 ```shell
 // 回家
@@ -224,7 +224,7 @@ $ adb shell am start -n com.byd.launchermap/com.byd.automap.activity.EmptyJumpAc
 $ adb shell am start -n com.byd.launchermap/com.byd.automap.activity.EmptyJumpActivity -e voice_operation_type voice_type_go_company
 ```
 
-1. 百度地图汽车版
+4. 百度地图汽车版
 
 ```shell
 // 回家
@@ -312,11 +312,3 @@ $ adb shell am start -d "baidumap://map/navi/common?addr=company"
    1. 腾讯地图车机版。下载链接：https://tai.qq.com/navi/pages/index/
    1. 百度地图手机版。下载链接：https://map.baidu.com/zt/client/index/
    1. 百度地图汽车版。64 位下载链接：https://carmap.baidu.com/，32 位下载链接：https://opn.baidu.com/map/2025/v21/
-
----
-
-最后提供一些地图无关的其它内容：
-
-1. 自己开发的启动 DiLink 内置浏览器的工具，可以不需要额外安装第三方浏览器。具体教程：[DiLink 其实有内置浏览器](https://mp.weixin.qq.com/s/zmxHQII5yWKLu8QgpQVWUg)
-1. DiLink 5.0 各个品牌内置的桌面壁纸：https://pan.quark.cn/s/3f750f38c441
-1. DiLink 3.0/4.0/5.0 手机投屏，具体教程：[一个有点用的功能【手机投屏】，支持 DiLink 3.0/4.0/5.0](https://mp.weixin.qq.com/s/Jk2fQo7E2gEzmUsV8CpLAg)
