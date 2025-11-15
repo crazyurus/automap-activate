@@ -34,7 +34,7 @@ export async function post(
     const { code, success, message, result } = await response.json();
 
     if (success) {
-      if (result.vin === null || result.vin.slice(-6) === vin) {
+      if (!result.vin || result.vin.slice(-6) === vin) {
         return {
           code: 0,
           message: result.state,
