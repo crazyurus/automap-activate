@@ -1,4 +1,4 @@
-import { Button, Form, Modal, Typography } from '@douyinfe/semi-ui';
+import { Button, Form, Tooltip, Modal, Typography } from '@douyinfe/semi-ui';
 
 import { post as activate } from '@api/activate';
 import { useLoading } from '../../../hooks';
@@ -24,11 +24,13 @@ function QueryTab(): JSX.Element {
     });
 
     if (code === 0) {
+      const mapType = values.mapType === 1 ? '高德' : '百度';
+
       Modal.success({
         title: message,
         content: (
           <>
-            <span>可正常使用比亚迪定制版地图。地图使用教程：</span>
+            <span>可正常使用{mapType}地图定制版。地图使用教程：</span>
             {tutorial}
           </>
         ),
@@ -57,7 +59,36 @@ function QueryTab(): JSX.Element {
         <span>比亚迪定制版地图使用教程：</span>
         {tutorial}
       </div>
-      <Form onSubmit={values => handleActivate(values)}>
+      <Form
+        initValues={{
+          mapType: 1,
+        }}
+        onSubmit={values => handleActivate(values)}
+      >
+        <Form.RadioGroup
+          field="mapType"
+          label="地图类型"
+          type="button"
+          rules={[
+            {
+              required: true,
+              message: '请选择地图类型',
+            },
+          ]}
+        >
+          optionList=
+          {[
+            <Form.Radio key="amap" value={1}>
+              高德
+            </Form.Radio>,
+
+            <Form.Radio key="baidu" value={2} disabled>
+              <Tooltip content="暂不支持查询百度地图定制版激活状态">
+                百度
+              </Tooltip>
+            </Form.Radio>,
+          ]}
+        </Form.RadioGroup>
         <Form.Input
           field="phone"
           label="车联网卡号/本机号码"
@@ -67,6 +98,7 @@ function QueryTab(): JSX.Element {
           required
           rules={[
             {
+              required: true,
               pattern: /^1\d{10}$/,
               message: '请输入正确的本机号码',
             },
@@ -82,6 +114,7 @@ function QueryTab(): JSX.Element {
           required
           rules={[
             {
+              required: true,
               pattern: /^\d{6}$/,
               message: '请输入正确的车架号后 6 位',
             },

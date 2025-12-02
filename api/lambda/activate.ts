@@ -1,9 +1,20 @@
 import type { RequestOption } from '@modern-js/runtime/server';
 
 export async function post(
-  context: RequestOption<never, { phone: string; vin: string }>,
+  context: RequestOption<
+    never,
+    { phone: string; vin: string; mapType: number }
+  >,
 ) {
-  const { phone, vin } = context.data;
+  const { phone, vin, mapType } = context.data;
+
+  if (mapType !== 1) {
+    return {
+      code: -1,
+      message: '仅支持查询高德地图定制版激活状态',
+      data: null,
+    };
+  }
 
   if (!/^1\d{10}$/.test(phone)) {
     return {
@@ -29,6 +40,7 @@ export async function post(
       },
       body: JSON.stringify({
         localNum: phone,
+        mapType,
       }),
     });
     const { code, success, message, result } = await response.json();
