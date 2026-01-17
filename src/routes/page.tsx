@@ -4,11 +4,10 @@ import { useRef, useState } from 'react';
 import { TUTORIAL_URL } from '../constants';
 import styles from './page.module.scss';
 import QueryTab from './components/query';
-import DocumentTab from './components/document';
 
 function IndexPage(): JSX.Element {
-  const [activeTab, setActivateTab] = useState<string>();
-  const lastActiveTab = useRef<string>();
+  const [activeTab, setActivateTab] = useState('query');
+  const lastActiveTab = useRef('');
 
   const handleClick = (key: string) => {
     if (key === 'tutorial') {
@@ -30,12 +29,11 @@ function IndexPage(): JSX.Element {
         description="由于地图激活的限制重新出现，本站的查询功能现已继续提供服务"
         closeIcon={null}
       />
-      <Tabs activeKey={activeTab} type="line" more={7} onTabClick={handleClick}>
+      <Tabs activeKey={activeTab} type="line" onTabClick={handleClick}>
         <TabPane tab="激活查询" itemKey="query">
           <QueryTab />
         </TabPane>
         <TabPane tab="使用教程" itemKey="tutorial" />
-        {DocumentTab()}
       </Tabs>
     </div>
   );
