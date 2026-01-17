@@ -7,7 +7,7 @@ import QueryTab from './components/query';
 
 function IndexPage(): JSX.Element {
   const [activeTab, setActivateTab] = useState('query');
-  const lastActiveTab = useRef('');
+  const lastActiveTab = useRef('query');
 
   const handleClick = (key: string) => {
     if (key === 'tutorial') {
