@@ -24,7 +24,7 @@ export default defineConfig({
     polyfillPlugin(),
   ],
   html: {
-    title: '比亚迪定制版地图工具',
+    title: 'BYD 定制版地图工具',
   },
   tools: {
     sass: {
