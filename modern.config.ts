@@ -1,10 +1,8 @@
 import { appTools, defineConfig } from '@modern-js/app-tools';
 import { bffPlugin } from '@modern-js/plugin-bff';
-import { koaPlugin } from '@modern-js/plugin-koa';
 import { polyfillPlugin } from '@modern-js/plugin-polyfill';
 import { SemiRspackPlugin } from '@douyinfe/semi-rspack-plugin';
 
-// https://modernjs.dev/en/configure/app/usage
 export default defineConfig({
   bff: {
     enableHandleWeb: process.env.NODE_ENV === 'production',
@@ -12,17 +10,7 @@ export default defineConfig({
   server: {
     port: 8889,
   },
-  runtime: {
-    router: true,
-  },
-  plugins: [
-    appTools({
-      bundler: 'rspack',
-    }),
-    bffPlugin(),
-    koaPlugin(),
-    polyfillPlugin(),
-  ],
+  plugins: [appTools(), bffPlugin(), polyfillPlugin()],
   html: {
     title: 'BYD 定制版地图工具',
   },
@@ -32,12 +20,12 @@ export default defineConfig({
         silenceDeprecations: ['global-builtin', 'import'],
       },
     },
-    rspack(config, context) {
-      context.appendPlugins([
+    rspack: {
+      plugins: [
         new SemiRspackPlugin({
           theme: '@semi-bot/semi-theme-automap',
         }),
-      ]);
+      ],
     },
   },
   output: {
