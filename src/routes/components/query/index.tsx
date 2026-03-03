@@ -1,18 +1,16 @@
-import { Button, Form, Tooltip, Modal, Typography } from '@douyinfe/semi-ui';
-
 import { post as activate } from '@api/activate';
-import { useLoading } from '../../../hooks';
-import { TUTORIAL_URL } from '../../../constants';
+import { Button, Form, Modal, Tooltip, Typography } from '@douyinfe/semi-ui';
 
+import { TUTORIAL_URL } from '../../../constants';
+import { useLoading } from '../../../hooks';
 import styles from './index.module.scss';
 
 const tutorial = (
   <Typography.Text
     link={{
       href: TUTORIAL_URL,
-      target: '_blank',
-    }}
-  >
+      target: '_blank'
+    }}>
     {TUTORIAL_URL}
   </Typography.Text>
 );
@@ -20,7 +18,7 @@ const tutorial = (
 function QueryTab(): JSX.Element {
   const [handleActivate, loading] = useLoading(async values => {
     const { code, message } = await activate({
-      data: values,
+      data: values
     });
 
     if (code === 0) {
@@ -36,9 +34,9 @@ function QueryTab(): JSX.Element {
         ),
         cancelButtonProps: {
           style: {
-            display: 'none',
-          },
-        },
+            display: 'none'
+          }
+        }
       });
     } else {
       Modal.error({
@@ -46,9 +44,9 @@ function QueryTab(): JSX.Element {
         content: code > 0 ? '以上查询结果仅供参考' : undefined,
         cancelButtonProps: {
           style: {
-            display: 'none',
-          },
-        },
+            display: 'none'
+          }
+        }
       });
     }
   });
@@ -61,10 +59,9 @@ function QueryTab(): JSX.Element {
       </div>
       <Form
         initValues={{
-          mapType: 1,
+          mapType: 1
         }}
-        onSubmit={values => handleActivate(values)}
-      >
+        onSubmit={values => handleActivate(values)}>
         <Form.RadioGroup
           field="mapType"
           label="地图类型"
@@ -72,22 +69,15 @@ function QueryTab(): JSX.Element {
           rules={[
             {
               required: true,
-              message: '请选择地图类型',
-            },
-          ]}
-        >
-          optionList=
-          {[
-            <Form.Radio key="amap" value={1}>
-              高德
-            </Form.Radio>,
-
-            <Form.Radio key="baidu" value={2} disabled>
-              <Tooltip content="暂不支持查询百度地图定制版激活状态">
-                百度
-              </Tooltip>
-            </Form.Radio>,
-          ]}
+              message: '请选择地图类型'
+            }
+          ]}>
+          <Form.Radio key="amap" value={1}>
+            高德
+          </Form.Radio>
+          <Form.Radio key="baidu" value={2} disabled>
+            <Tooltip content="暂不支持查询百度地图定制版激活状态">百度</Tooltip>
+          </Form.Radio>
         </Form.RadioGroup>
         <Form.Input
           field="phone"
@@ -100,8 +90,8 @@ function QueryTab(): JSX.Element {
             {
               required: true,
               pattern: /^1\d{10}$/,
-              message: '请输入正确的本机号码',
-            },
+              message: '请输入正确的本机号码'
+            }
           ]}
         />
         <Form.Input
@@ -116,17 +106,12 @@ function QueryTab(): JSX.Element {
             {
               required: true,
               pattern: /^\d{6}$/,
-              message: '请输入正确的车架号后 6 位',
-            },
+              message: '请输入正确的车架号后 6 位'
+            }
           ]}
         />
         <div className={styles.footer}>
-          <Button
-            htmlType="submit"
-            loading={loading}
-            type="primary"
-            theme="solid"
-          >
+          <Button htmlType="submit" loading={loading} type="primary" theme="solid">
             查询
           </Button>
         </div>

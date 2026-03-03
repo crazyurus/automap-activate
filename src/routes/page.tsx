@@ -1,9 +1,9 @@
-import { Tabs, TabPane, Banner } from '@douyinfe/semi-ui';
+import { Banner, TabPane, Tabs } from '@douyinfe/semi-ui';
 import { useRef, useState } from 'react';
 
 import { TUTORIAL_URL } from '../constants';
-import styles from './page.module.scss';
 import QueryTab from './components/query';
+import styles from './page.module.scss';
 
 function IndexPage(): JSX.Element {
   const [activeTab, setActivateTab] = useState('query');

@@ -6,8 +6,8 @@ export const post = Api(
     z.object({
       phone: z.string(),
       vin: z.string(),
-      mapType: z.number(),
-    }),
+      mapType: z.number()
+    })
   ),
   async ({ data }) => {
     const { phone, vin, mapType } = data;
@@ -16,7 +16,7 @@ export const post = Api(
       return {
         code: -1,
         message: '仅支持查询高德地图定制版激活状态',
-        data: null,
+        data: null
       };
     }
 
@@ -24,7 +24,7 @@ export const post = Api(
       return {
         code: -1,
         message: '本机号码格式不正确',
-        data: null,
+        data: null
       };
     }
 
@@ -32,7 +32,7 @@ export const post = Api(
       return {
         code: -1,
         message: '车架号后 6 位格式不正确',
-        data: null,
+        data: null
       };
     }
 
@@ -40,12 +40,12 @@ export const post = Api(
       const response = await fetch(process.env.BYD_MAP_URL, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           localNum: phone,
-          mapType,
-        }),
+          mapType
+        })
       });
       const { code, success, message, result } = await response.json();
 
@@ -54,13 +54,13 @@ export const post = Api(
           return {
             code: 0,
             message: result.state,
-            data: {},
+            data: {}
           };
         } else {
           return {
             code: -2,
             message: '车架号后 6 位与本机号码不匹配',
-            data: null,
+            data: null
           };
         }
       }
@@ -68,14 +68,14 @@ export const post = Api(
       return {
         code,
         message,
-        data: null,
+        data: null
       };
     } catch (e) {
       return {
         code: -1,
         message: '查询失败，请稍后再试',
-        data: null,
+        data: null
       };
     }
-  },
+  }
 );
