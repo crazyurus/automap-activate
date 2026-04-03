@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-export function useLoading<F extends (...args: any) => Promise>(handler: F): [F, boolean, Error | undefined] {
+export function useLoading<F extends (...args: any) => Promise<any>>(handler: F): [F, boolean, Error | undefined] {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error>();
   const newHandler = useCallback(
